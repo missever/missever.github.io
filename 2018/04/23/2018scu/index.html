@@ -1,0 +1,840 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="missever" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="SCU-4581由于内存限制,对$v &amp;lt; 1e6$做普通背包,对$n &amp;lt; 20$做容斥即可想到了容斥居然想不出组合数公式12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018川大校赛补">
+<meta property="og:url" content="http://yoursite.com/2018/04/23/2018scu/index.html">
+<meta property="og:site_name" content="飞羽">
+<meta property="og:description" content="SCU-4581由于内存限制,对$v &amp;lt; 1e6$做普通背包,对$n &amp;lt; 20$做容斥即可想到了容斥居然想不出组合数公式12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717">
+<meta property="og:updated_time" content="2018-04-23T03:59:15.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018川大校赛补">
+<meta name="twitter:description" content="SCU-4581由于内存限制,对$v &amp;lt; 1e6$做普通背包,对$n &amp;lt; 20$做容斥即可想到了容斥居然想不出组合数公式12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 2018川大校赛补 | 飞羽 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=64329891";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">飞羽</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                2018川大校赛补
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-04-23T11:53:22+08:00" content="2018-04-23">
+              2018-04-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SCU-4581"><a href="#SCU-4581" class="headerlink" title="SCU-4581"></a>SCU-4581</h1><p>由于内存限制,对$v &lt; 1e6$做普通背包,对$n &lt; 20$做容斥即可<br><del>想到了容斥居然想不出组合数公式</del><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">#include&lt;bits/stdc++.h&gt;</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">using namespace std;</div><div class="line">typedef long long LL;</div><div class="line">typedef pair&lt;int, int&gt; P;</div><div class="line"></div><div class="line">const int BUFFER_MAX_SIZE = 100000;</div><div class="line">struct Quick_In &#123;</div><div class="line">    char buf[BUFFER_MAX_SIZE], *ps = buf, *pe = buf + 1;</div><div class="line">    inline void InNext() &#123;</div><div class="line">        if (++ps == pe)</div><div class="line">            pe = (ps = buf) + fread(buf, sizeof(char), sizeof(buf) / sizeof(char), stdin);</div><div class="line">    &#125;</div><div class="line">    template&lt;class T&gt;</div><div class="line">    inline bool operator()(T &amp;number) &#123;</div><div class="line">        number = 0;</div><div class="line">        T f = 1;</div><div class="line">        bool vis_point = 0;</div><div class="line">        if (ps == pe) return false; //EOF</div><div class="line">        do &#123;</div><div class="line">            InNext();</div><div class="line">            if (&apos;-&apos; == *ps) f = -1;</div><div class="line">        &#125; while (ps != pe &amp;&amp; !isdigit(*ps));</div><div class="line">        if (ps == pe) return false; //EOF</div><div class="line">        do &#123;</div><div class="line">            if((*ps) == &apos;.&apos;) vis_point = 1;</div><div class="line">            else &#123;</div><div class="line">                number = number * 10 + *ps - 48;</div><div class="line">                if(vis_point) f *= 0.1;</div><div class="line">            &#125;</div><div class="line">            InNext();</div><div class="line">        &#125; while (ps != pe &amp;&amp; (isdigit(*ps) || (*ps) == &apos;.&apos;));</div><div class="line">        number *= f;</div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line">&#125; In;</div><div class="line"></div><div class="line">const int maxn = 2e5 + 5;</div><div class="line">const int mod = 1e9 + 7;</div><div class="line"></div><div class="line">int add(int x, int y) &#123;</div><div class="line">    x += y;</div><div class="line">    if(x &gt;= mod) x -= mod;</div><div class="line">    return x;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int mul(int x, int y) &#123;</div><div class="line">    LL z = 1LL * x * y;</div><div class="line">    return z - z / mod * mod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int powt(int x, int y) &#123;</div><div class="line">    int r = 1;</div><div class="line">    while(y) &#123;</div><div class="line">        if(y &amp; 1) r = mul(r, x);</div><div class="line">        x = mul(x, x);</div><div class="line">        y &gt;&gt;= 1;</div><div class="line">    &#125;</div><div class="line">    return r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int f[maxn], a[20];</div><div class="line"></div><div class="line">int C(int n, int m) &#123;</div><div class="line">    if(m &gt; n) return 0;</div><div class="line">    int res = 1;</div><div class="line">    for(int i = 0;i &lt; m; i++) res = mul(res, mul(n - i, powt(i + 1, mod - 2)));</div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void solve() &#123;</div><div class="line">    int  n, v, w, c, i, j, res;</div><div class="line">    In(n);</div><div class="line">    In(v);</div><div class="line">    if(v &lt; maxn) &#123;</div><div class="line">        for(i = 0; i &lt;= v; i++) f[v] = 0;</div><div class="line">        f[0] = 1;</div><div class="line">        for(i = 0; i &lt; n; i++) &#123;</div><div class="line">            In(c);</div><div class="line">            for(j = v - c + 1, res = 0; j &lt;= v; j++) res = add(res, f[j]);</div><div class="line">            for(j = v; j &gt; 0; j--) &#123;</div><div class="line">                res = add(res, mod - f[j]);</div><div class="line">                if(j &gt;= c) res = add(res, f[j - c]);</div><div class="line">                f[j] = add(f[j], res);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        printf(&quot;%d\n&quot;, f[v]);</div><div class="line">    &#125; else &#123;</div><div class="line">        for(i = 0;i &lt; n; i++) In(a[i]);</div><div class="line">        for(i = res = 0;i &lt; (1 &lt;&lt; n); i++) &#123;</div><div class="line">            for(j = c = 0, w = v;j &lt; n; j++) &#123;</div><div class="line">                if((i &gt;&gt; j) &amp; 1) &#123;</div><div class="line">                    w -= a[j] + 1;</div><div class="line">                    c++;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if(c &amp; 1) res = add(res, mod - C(w + n - 1, n - 1));</div><div class="line">            else res = add(res, C(w + n - 1, n - 1));</div><div class="line">        &#125;</div><div class="line">        printf(&quot;%d\n&quot;, res);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">#ifdef CX_TEST</div><div class="line">    //freopen(&quot;E:\\program--GG\\test_in.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">#endif</div><div class="line">    int t;</div><div class="line">    scanf(&quot;%d&quot;, &amp;t);</div><div class="line">    while(t--) solve();</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="SCU-4589"><a href="#SCU-4589" class="headerlink" title="SCU-4589"></a>SCU-4589</h1><p>题意:求质数的$k$次方前缀和<br>一种类似欧拉筛法的基本应用吧<br>复杂度是$O(k * n^{3/4)/logn$的<br><del>这个手写$k$次方自然数前缀和真恶心</del><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div></pre></td><td class="code"><pre><div class="line">#include&lt;bits/stdc++.h&gt;</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">using namespace std;</div><div class="line">typedef long long LL;</div><div class="line">typedef pair&lt;int, int&gt; P;</div><div class="line"></div><div class="line">const int maxn = 1e5 + 5;</div><div class="line">int mod, k;</div><div class="line"></div><div class="line">int add(int x, int y) &#123;</div><div class="line">    x += y;</div><div class="line">    if(x &gt;= mod) x -= mod;</div><div class="line">    return x;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int mul(int x, int y) &#123;</div><div class="line">    LL z = 1LL * x * y;</div><div class="line">    return z - z / mod * mod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">LL mul(LL a, LL b, LL m) &#123;</div><div class="line">    LL r = (a * b - (LL)(((long double)a * b) / m) * m);</div><div class="line">    r = r - r / m * m;</div><div class="line">    if(r &lt; 0) r += m;</div><div class="line">    return r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int powt(int x, int y) &#123;</div><div class="line">    int r = 1;</div><div class="line">    while(y) &#123;</div><div class="line">        if(y &amp; 1) r = mul(r, x);</div><div class="line">        x = mul(x, x);</div><div class="line">        y &gt;&gt;= 1;</div><div class="line">    &#125;</div><div class="line">    return r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int fg[maxn], pri[maxn];</div><div class="line">LL sum[maxn];</div><div class="line">int cnt = 0;</div><div class="line"></div><div class="line">void GetPrime() &#123;</div><div class="line">    for (int i = 2; i &lt; maxn; ++i) &#123;</div><div class="line">        if (!fg[i]) pri[cnt++] = i;</div><div class="line">        for (int j = 0; j &lt; cnt &amp;&amp; pri[j] * i &lt; maxn; ++j) &#123;</div><div class="line">            fg[pri[j] * i] = 1;</div><div class="line">            if (i % pri[j] == 0) break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int S(int n) &#123;</div><div class="line">    int res;</div><div class="line">    if(k == 0) res = n % mod;</div><div class="line">    else if(k == 1) res =  1LL * n * (n + 1) / 2 % mod;</div><div class="line">    else if(k == 2) &#123;</div><div class="line">        LL m = 1LL * mod * 6;</div><div class="line">        res = mul(mul(n, n + 1, m), 2 * n + 1, m) / 6;</div><div class="line">    &#125; else if(k == 3) &#123;</div><div class="line">        LL m = 1LL * mod * 4;</div><div class="line">        res = mul(mul(n, n + 1, m), mul(n, n + 1, m), m) / 4;</div><div class="line">    &#125; else if(k == 4) &#123;</div><div class="line">        LL m = 1LL * mod * 30;</div><div class="line">        LL d = mul(6LL * n + 9, n, m);</div><div class="line">        d = mul(d + 1, n, m) + m - 1;</div><div class="line">        res = mul(d, mul(n, n + 1, m), m) / 30;</div><div class="line">    &#125; else if(k == 5) &#123;</div><div class="line">        LL m = 1LL * mod * 12;</div><div class="line">        LL d = mul(2LL * n + 4, n, m);</div><div class="line">        d = mul(d + 1, n, m) + m - 1;</div><div class="line">        res = mul(d, mul(mul(n, n, m), n + 1, m), m) / 12;</div><div class="line">    &#125; else if(k == 6) &#123;</div><div class="line">        LL m = 1LL * mod * 42;</div><div class="line">        LL d = mul(6LL * n + 15, n, m);</div><div class="line">        d = mul(d + 6, n, m);</div><div class="line">        d = mul(d + m - 6, n, m);</div><div class="line">        d = mul(d + m - 1, n, m) + 1;</div><div class="line">        res = mul(d, mul(n, n + 1, m), m) / 42;</div><div class="line">    &#125; else if(k == 7) &#123;</div><div class="line">        LL m = 1LL * mod * 24;</div><div class="line">        LL d = mul(3LL * n + 9, n, m);</div><div class="line">        d = mul(d + 5, n, m);</div><div class="line">        d = mul(d + m - 5, n, m);</div><div class="line">        d = mul(d + m - 2, n, m) + 2;</div><div class="line">        res = mul(d, mul(mul(n, n, m), n + 1, m), m) / 24;</div><div class="line">    &#125; else if(k == 8) &#123;</div><div class="line">        LL m = 1LL * mod * 90;</div><div class="line">        LL d = mul(10LL * n + 35, n, m);</div><div class="line">        d = mul(d + 25, n, m);</div><div class="line">        d = mul(d + m - 25, n, m);</div><div class="line">        d = mul(d + m - 17, n, m);</div><div class="line">        d = mul(d + 17, n, m);</div><div class="line">        d = mul(d + 3, n, m) + m - 3;</div><div class="line">        res = mul(d, mul(n, n + 1, m), m) / 90;</div><div class="line">    &#125; else if(k == 9) &#123;</div><div class="line">        LL m = 1LL * mod * 20;</div><div class="line">        LL d = mul(2LL * n + 8, n, m);</div><div class="line">        d = mul(d + 7, n, m);</div><div class="line">        d = mul(d + m - 7, n, m);</div><div class="line">        d = mul(d + m - 7, n, m);</div><div class="line">        d = mul(d + 7, n, m);</div><div class="line">        d = mul(d + 3, n, m) + m - 3;</div><div class="line">        res = mul(d, mul(mul(n, n, m), n + 1, m), m) / 20;</div><div class="line">    &#125; else &#123;</div><div class="line">        LL m = 1LL * mod * 66;</div><div class="line">        LL d = mul(6LL * n + 27, n, m);</div><div class="line">        d = mul(d + 28, n, m);</div><div class="line">        d = mul(d + m - 28, n, m);</div><div class="line">        d = mul(d + m - 38, n, m);</div><div class="line">        d = mul(d + 38, n, m);</div><div class="line">        d = mul(d + 28, n, m);</div><div class="line">        d = mul(d + m - 28, n, m);</div><div class="line">        d = mul(d + m - 5, n, m) + 5;</div><div class="line">        res = mul(d, mul(n, n + 1, m), m) / 66;</div><div class="line">    &#125;</div><div class="line">    return add(res, mod - 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">LL fa[maxn], fb[maxn];</div><div class="line"></div><div class="line">void solve() &#123;</div><div class="line">    LL i, r, n;</div><div class="line">    scanf(&quot;%lld%d%d&quot;, &amp;n, &amp;k, &amp;mod);</div><div class="line">    for(r = 1; 1LL * r * r &lt;= n; r++) fa[r] = S(r);</div><div class="line">    for(i = 1; i &lt; r; i++) fb[i] = S(n / i);</div><div class="line">    for(LL p = 2; p &lt; r; p++) &#123;</div><div class="line">        if(!fg[p]) &#123;</div><div class="line">            int pw = powt(p, k);</div><div class="line">            for(i = 1; i &lt;= min(r - 1, n / p / p); i++) &#123;</div><div class="line">                if(p * i &lt; r) fb[i] = add(fb[i], mod - mul(pw, add(fb[i * p], mod - fa[p - 1])));</div><div class="line">                else fb[i] = add(fb[i], mod - mul(pw, add(fa[n / p / i], mod - fa[p - 1])));</div><div class="line">            &#125;</div><div class="line">            for(i = r - 1; i &gt;= p * p; i--) fa[i] = add(fa[i], mod - mul(pw, add(fa[i / p], mod - fa[p - 1])));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    printf(&quot;%lld\n&quot;, fb[1]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">#ifdef CX_TEST</div><div class="line">    freopen(&quot;E:\\program--GG\\test_in.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">#endif</div><div class="line">    int t;</div><div class="line">    GetPrime();</div><div class="line">    scanf(&quot;%d&quot;, &amp;t);</div><div class="line">    while(t--) solve();</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/27/CDOJ 1825/" rel="next" title="CDOJ 1825 柱爷搞搞搞搞搞xxxxoooorrrrr">
+                <i class="fa fa-chevron-left"></i> CDOJ 1825 柱爷搞搞搞搞搞xxxxoooorrrrr
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+     <div class="comments" id="comments">
+       
+			<div id="SOHUCS" ></div>
+
+       
+     </div>
+   
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="missever" />
+          <p class="site-author-name" itemprop="name">missever</p>
+          <p class="site-description motion-element" itemprop="description">落花人独立,微雨燕双飞</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/prolightsfxjh" title="ProLights" target="_blank">ProLights</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/qscqesze/" title="qscqesze" target="_blank">qscqesze</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/zwsign" title="zhong_wang" target="_blank">zhong_wang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.cnblogs.com/clrs97/" title="Claris" target="_blank">Claris</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/skywalkert" title="tangjz" target="_blank">tangjz</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lbn187.is-programmer.com/" title="lbn187" target="_blank">lbn187</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SCU-4581"><span class="nav-number">1.</span> <span class="nav-text">SCU-4581</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SCU-4589"><span class="nav-number">2.</span> <span class="nav-text">SCU-4589</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">missever</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+    
+
+   
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
+  
+
+	
+		 <script type="text/javascript"> 
+		(function(){ 
+		var appid = 'cytirAl0i'; 
+		var conf = 'ace32b2f70f278ce874c5c80b006cdad'; 
+		var width = window.innerWidth || document.documentElement.clientWidth; 
+		if (width < 960) { 
+		window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+		<script type="text/javascript" src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+	
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+ <!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+  
+</body>
+</html>
