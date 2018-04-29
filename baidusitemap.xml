@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/29/CF_470_E/</loc>
+    <lastmod>2018-04-29T08:15:49.999Z</lastmod>
+    <data>
+        <display>
+        <title>Perpetual Subtraction</title>
+        <pubTime>2018-04-29T08:04:52.000Z</pubTime>
+        
+        <tag>概率</tag>
+         
+        <tag>NTT</tag>
+         
+        <tag>矩阵对角化</tag>
+         
+         
+           
+             
+              <breadCrumb title="ACM" url="http://yoursite.com/categories/ACM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/04/29/CF_475_E/</loc>
     <lastmod>2018-04-29T08:00:44.670Z</lastmod>
     <data>
@@ -11,9 +35,9 @@
         <title>Circles of Waiting</title>
         <pubTime>2018-04-29T07:52:49.000Z</pubTime>
         
-        <tag>高斯消元</tag>
-         
         <tag>概率</tag>
+         
+        <tag>高斯消元</tag>
          
          
            
@@ -606,6 +630,8 @@
         <title>CF_#415(Div. 1)_E</title>
         <pubTime>2017-06-14T15:36:44.000Z</pubTime>
         
+        <tag>DP</tag>
+         
         <tag>莫比乌斯反演</tag>
          
         <tag>欧拉函数</tag>
@@ -613,8 +639,6 @@
         <tag>虚树</tag>
          
         <tag>LCA</tag>
-         
-        <tag>DP</tag>
          
          
            
