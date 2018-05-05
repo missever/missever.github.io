@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="missever" />
+  <meta name="keywords" content="分块,树链剖分," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="落花人独立,微雨燕双飞">
-<meta property="og:type" content="website">
-<meta property="og:title" content="飞羽">
-<meta property="og:url" content="http://yoursite.com/tags/几何/index.html">
+<meta name="description" content="题目传送门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="May Holidays">
+<meta property="og:url" content="http://yoursite.com/2018/05/05/CF-477-E/index.html">
 <meta property="og:site_name" content="飞羽">
-<meta property="og:description" content="落花人独立,微雨燕双飞">
+<meta property="og:description" content="题目传送门">
+<meta property="og:updated_time" content="2018-05-05T11:08:27.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="飞羽">
-<meta name="twitter:description" content="落花人独立,微雨燕双飞">
+<meta name="twitter:title" content="May Holidays">
+<meta name="twitter:description" content="题目传送门">
 
 
 
@@ -110,7 +111,7 @@
   };
 </script>
 
-  <title> 标签: 几何 | 飞羽 </title>
+  <title> May Holidays | 飞羽 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -140,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -261,46 +262,142 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        几何
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                May Holidays
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-05T14:18:13+08:00" content="2018-05-05">
+              2018-05-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p><a href="http://codeforces.com/contest/966" target="_blank" rel="external">题目传送门</a><br><a id="more"></a><br>树链剖分+分块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div></pre></td><td class="code"><pre><div class="line">#include&lt;bits/stdc++.h&gt;</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">using namespace std;</div><div class="line">typedef long long LL;</div><div class="line">typedef pair&lt;int, int&gt; P;</div><div class="line"></div><div class="line">const int maxn = 1e5 + 5;</div><div class="line">const int mod = 1e9 + 7;</div><div class="line"></div><div class="line">vector&lt;int&gt; g[maxn];</div><div class="line">int sz[maxn], fa[maxn], dep[maxn], son[maxn];</div><div class="line">int top[maxn], dfn[maxn];</div><div class="line">int cnt = 0;</div><div class="line"></div><div class="line">void dfs1(int u, int father) &#123;</div><div class="line">    dep[u] = dep[father] + 1;</div><div class="line">    fa[u] = father;</div><div class="line">    sz[u] = 1;</div><div class="line">    son[u] = -1;</div><div class="line">    for(auto v : g[u]) &#123;</div><div class="line">        if(v == father) continue;</div><div class="line">        dfs1(v, u);</div><div class="line">        sz[u] += sz[v];</div><div class="line">        if(son[u] == -1 || sz[v] &gt; sz[son[u]]) son[u] = v;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void dfs2(int u, int t) &#123;</div><div class="line">    top[u] = t;</div><div class="line">    dfn[u] = ++cnt;</div><div class="line">    if(son[u] == -1) return;</div><div class="line">    dfs2(son[u], t);</div><div class="line">    for(auto v : g[u]) &#123;</div><div class="line">        if(v == son[u] || v == fa[u]) continue;</div><div class="line">        dfs2(v, v);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int a[maxn], fd[maxn];</div><div class="line">int fl[405], fr[405], tag[405], ans = 0;</div><div class="line">bool off[maxn];</div><div class="line">unsigned char fp[405][maxn &lt;&lt; 1];</div><div class="line"></div><div class="line">void add(int k, int l, int r, int v) &#123;</div><div class="line">    for(int i = l;i &lt;= r; i++) &#123;</div><div class="line">        if(off[i]) &#123;</div><div class="line">            a[i] += v;</div><div class="line">            continue;</div><div class="line">        &#125;</div><div class="line">        if(a[i] + tag[k] &lt; maxn) ans--;</div><div class="line">        fp[k][a[i]]--;</div><div class="line">        a[i] += v;</div><div class="line">        if(a[i] + tag[k] &lt; maxn) ans++;</div><div class="line">        fp[k][a[i]]++;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void add(int x, int v) &#123;</div><div class="line">    off[x] ^= 1;</div><div class="line">    ans += v * (a[x] + tag[fd[x]] &lt; maxn);</div><div class="line">    fp[fd[x]][a[x]] += v;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void update(int l, int r, int v) &#123;</div><div class="line">    if(fd[l] == fd[r]) add(fd[l], l, r, v);</div><div class="line">    else &#123;</div><div class="line">        add(fd[l], l, fr[fd[l]], v);</div><div class="line">        add(fd[r], fl[fd[r]], r, v);</div><div class="line">        for(int i = fd[l] + 1;i &lt; fd[r]; i++) &#123;</div><div class="line">            if(v &lt; 0) ans += fp[i][maxn - tag[i]];</div><div class="line">            tag[i] += v;</div><div class="line">            if(v &gt; 0) ans -= fp[i][maxn - tag[i]];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void modify(int u, int v, int val) &#123;</div><div class="line">    int x = top[u], y = top[v];</div><div class="line">    while(x != y) &#123;</div><div class="line">        int &amp;w = dep[x] &gt; dep[y] ? u : v;</div><div class="line">        int &amp;z = dep[x] &gt; dep[y] ? x : y;</div><div class="line">        update(dfn[z], dfn[w], val);</div><div class="line">        w = fa[z];</div><div class="line">        z = top[w];</div><div class="line">    &#125;</div><div class="line">    u = dfn[u];</div><div class="line">    v = dfn[v];</div><div class="line">    if(u &gt; v) swap(u, v);</div><div class="line">    update(u, v, val);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">#ifdef CX_TEST</div><div class="line">    freopen(&quot;E:\\program--GG\\test_in.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">#endif</div><div class="line">    int n, m, i, j, u;</div><div class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;m);</div><div class="line">    for(i = 2; i &lt;= n; i++) &#123;</div><div class="line">        scanf(&quot;%d&quot;, &amp;u);</div><div class="line">        g[u].push_back(i);</div><div class="line">    &#125;</div><div class="line">    dfs1(1, 0);</div><div class="line">    dfs2(1, 1);</div><div class="line">    for(i = 1; i &lt;= n; i++) scanf(&quot;%d&quot;, &amp;a[dfn[i]]);</div><div class="line">    for(i = 1; i &lt;= n; i++) a[i] += maxn;</div><div class="line">    fl[1] = 1;</div><div class="line">    for(i = j = u = 1; i &lt;= n; i++, u++) &#123;</div><div class="line">        if(u == 333) &#123;</div><div class="line">            j++;</div><div class="line">            u = 1;</div><div class="line">            fl[j] = i;</div><div class="line">        &#125;</div><div class="line">        fd[i] = j;</div><div class="line">        fr[j] = i;</div><div class="line">        fp[j][a[i]]++;</div><div class="line">    &#125;</div><div class="line">    for(i = 0;i &lt; m; i++) &#123;</div><div class="line">        scanf(&quot;%d&quot;, &amp;u);</div><div class="line">        if(u &gt; 0) &#123;</div><div class="line">            add(dfn[u], -1);</div><div class="line">            modify(u, 1, -1);</div><div class="line">        &#125; else &#123;</div><div class="line">            add(dfn[-u], 1);</div><div class="line">            modify(-u, 1, 1);</div><div class="line">        &#125;</div><div class="line">        printf(&quot;%d%c&quot;, ans, &quot; \n&quot;[i + 1 == m]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2018/04/23/CF_edu42_G/" itemprop="url">
-              
-                <span itemprop="name">Visible Black Areas</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-04-23T12:10:46+08:00"
-              content="2018-04-23" >
-          04-23
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/分块/" rel="tag">#分块</a>
+          
+            <a href="/tags/树链剖分/" rel="tag">#树链剖分</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/29/CF_470_E/" rel="next" title="Perpetual Subtraction">
+                <i class="fa fa-chevron-left"></i> Perpetual Subtraction
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -308,6 +405,13 @@
 
 
           
+     <div class="comments" id="comments">
+       
+			<div id="SOHUCS" ></div>
+
+       
+     </div>
+   
         </div>
         
           
@@ -326,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -411,6 +524,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -514,6 +638,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -534,6 +662,10 @@
     
 
    
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
   
 
 	
