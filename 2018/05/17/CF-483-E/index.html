@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="missever" />
+  <meta name="keywords" content="LCA,倍增,树状数组," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="落花人独立,微雨燕双飞">
-<meta property="og:type" content="website">
-<meta property="og:title" content="飞羽">
-<meta property="og:url" content="http://yoursite.com/tags/线段树/index.html">
+<meta name="description" content="题目传送门">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NN country">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/CF-483-E/index.html">
 <meta property="og:site_name" content="飞羽">
-<meta property="og:description" content="落花人独立,微雨燕双飞">
+<meta property="og:description" content="题目传送门">
+<meta property="og:updated_time" content="2018-05-17T07:33:55.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="飞羽">
-<meta name="twitter:description" content="落花人独立,微雨燕双飞">
+<meta name="twitter:title" content="NN country">
+<meta name="twitter:description" content="题目传送门">
 
 
 
@@ -110,7 +111,7 @@
   };
 </script>
 
-  <title> 标签: 线段树 | 飞羽 </title>
+  <title> NN country | 飞羽 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -140,7 +141,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -261,74 +262,145 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        线段树
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/13/CF_edu34_G/" itemprop="url">
-              
-                <span itemprop="name">CF_Educational_Round_34_G</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-13T14:57:40+08:00"
-              content="2017-12-13" >
-          12-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/20/CF-388(Div. 2)_E/" itemprop="url">
-              
-                <span itemprop="name">CF_#388(Div. 2)_E</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-20T12:34:02+08:00"
-              content="2016-12-20" >
-          12-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                NN country
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-17T15:16:22+08:00" content="2018-05-17">
+              2018-05-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://codeforces.com/contest/983/problem/E" target="_blank" rel="external">题目传送门</a><br><a id="more"></a><br>题意:给定一棵树，给$m$个公交车路线，即从$u$到$v$可直达不用换乘，给$q$次查询，问从$u -&gt; v$最少需要多少次换乘</p>
+<p>考虑分别求$u -&gt; lca,v -&gt; lca$,利用树上倍增维护$u$经过$2^{i}$次换乘最多向上走到哪里即可<br>然后我们利用这个树上倍增可以求得换乘次数最少的能到达的点$u’, v’$,使得再经过一次换乘就能到达$lca$,记录下当前次数<br>然后考虑,如果存在一条路线同时经过$u’, v’$那么答案就是$+1$,否则就是$+2$<br>考虑离线询问,按$dfs$序访问$v’$时,将有一个端点在$v$且另一个端点$dfs$要小一些的路径加入树状数组<br>开始访问$v’$的子树时区间查询$u’$的子树内的路径个数<br>离开$v’$的子树时再区间查询$u’$的子树内的路径个数<br>两者之差即是同时经过$u’, v’$的路径个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div></pre></td><td class="code"><pre><div class="line">#include&lt;bits/stdc++.h&gt;</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">using namespace std;</div><div class="line">typedef long long LL;</div><div class="line">typedef pair&lt;int, int&gt; P;</div><div class="line"></div><div class="line">const int mod = 1e9 + 7;</div><div class="line">const int maxn = 2e5 + 5;</div><div class="line"></div><div class="line">vector&lt;int&gt; g[maxn];</div><div class="line">int depth = 0, bn = 0, b[maxn &lt;&lt; 1];</div><div class="line">int f[maxn &lt;&lt; 1], dfn[maxn], dr[maxn], ft[maxn];</div><div class="line">int fp[maxn][20], ans[maxn], cnt[maxn];</div><div class="line">vector&lt;int&gt; fq[maxn];</div><div class="line">vector&lt;P&gt; sq[maxn];</div><div class="line"></div><div class="line">void dfs(int u, int fa) &#123;</div><div class="line">    int tmp = ++depth;</div><div class="line">    b[++bn] = tmp;</div><div class="line">    f[tmp] = u;</div><div class="line">    dfn[u] = bn;</div><div class="line">    for (auto v : g[u]) &#123;</div><div class="line">        if (v == fa) continue;</div><div class="line">        dfs(v, u);</div><div class="line">        b[++bn] = tmp;</div><div class="line">    &#125;</div><div class="line">    dr[u] = depth;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int st[maxn &lt;&lt; 1][20];</div><div class="line">int lg[maxn &lt;&lt; 1];</div><div class="line">void st_init() &#123;</div><div class="line">    for (int i = 2; i &lt; maxn * 2; ++i) lg[i] = lg[i &gt;&gt; 1] + 1;</div><div class="line">    for (int i = bn; i &gt;= 1; --i) &#123;</div><div class="line">        st[i][0] = b[i];</div><div class="line">        for (int j = 1; i + (1 &lt;&lt; j) - 1 &lt;= bn; ++j)</div><div class="line">            st[i][j] = min(st[i][j - 1], st[i + (1 &lt;&lt; (j - 1))][j - 1]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int rmq(int l, int r) &#123;</div><div class="line">    int k = lg[r - l + 1];</div><div class="line">    return min(st[l][k], st[r - (1 &lt;&lt; k) + 1][k]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">int lca(int a, int b) &#123;</div><div class="line">    if(a == b) return a;</div><div class="line">    if (dfn[a] &gt; dfn[b]) swap(a, b);</div><div class="line">    int k = rmq(dfn[a], dfn[b]);</div><div class="line">    return f[k];</div><div class="line">&#125;</div><div class="line"></div><div class="line">void update(int &amp;x, int y) &#123;</div><div class="line">    if(y &amp;&amp; (!x || dfn[x] &gt; dfn[y])) x = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void dfs2(int u, int fa) &#123;</div><div class="line">    for (auto v : g[u]) &#123;</div><div class="line">        if (v == fa) continue;</div><div class="line">        dfs2(v, u);</div><div class="line">        if(fp[v][0] != u) update(fp[u][0], fp[v][0]);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void dfs3(int u, int fa) &#123;</div><div class="line">    for(int i = 1; i &lt; 20; i++) fp[u][i] = fp[fp[u][i - 1]][i - 1];</div><div class="line">    for (auto v : g[u]) &#123;</div><div class="line">        if (v == fa) continue;</div><div class="line">        dfs3(v, u);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void add(int x) &#123;</div><div class="line">    while(x &lt; maxn) &#123;</div><div class="line">        ft[x]++;</div><div class="line">        x += x &amp; (-x);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int query(int x) &#123;</div><div class="line">    int res = 0;</div><div class="line">    while(x &gt; 0) &#123;</div><div class="line">        res += ft[x];</div><div class="line">        x -= x &amp; (-x);</div><div class="line">    &#125;</div><div class="line">    return res;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">#ifdef CX_TEST</div><div class="line">    freopen(&quot;E:\\program--GG\\test_in.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">#endif</div><div class="line">    int n, m, u, v, i, j, k;</div><div class="line">    scanf(&quot;%d&quot;, &amp;n);</div><div class="line">    for(i = 2; i &lt;= n; i++) &#123;</div><div class="line">        scanf(&quot;%d&quot;, &amp;u);</div><div class="line">        g[u].push_back(i);</div><div class="line">    &#125;</div><div class="line">    dfs(1, 0);</div><div class="line">    st_init();</div><div class="line">    scanf(&quot;%d&quot;, &amp;m);</div><div class="line">    for(i = 1; i &lt;= m; i++) &#123;</div><div class="line">        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);</div><div class="line">        k = lca(u, v);</div><div class="line">        if(k != u) update(fp[u][0], k);</div><div class="line">        if(k != v) update(fp[v][0], k);</div><div class="line">        if(dfn[u] &gt; dfn[v]) swap(u, v);</div><div class="line">        fq[b[dfn[v]]].push_back(b[dfn[u]]);</div><div class="line">    &#125;</div><div class="line">    dfs2(1, 0);</div><div class="line">    dfs3(1, 0);</div><div class="line">    scanf(&quot;%d&quot;, &amp;m);</div><div class="line">    for(i = 1; i &lt;= m; i++) &#123;</div><div class="line">        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);</div><div class="line">        k = lca(u, v);</div><div class="line">        if(dfn[u] &gt; dfn[v]) swap(u, v);</div><div class="line">        for(j = 19; j &gt;= 0; j--) &#123;</div><div class="line">            if(dfn[fp[u][j]] &gt; dfn[k]) &#123;</div><div class="line">                ans[i] += 1 &lt;&lt; j;</div><div class="line">                u = fp[u][j];</div><div class="line">            &#125;</div><div class="line">            if(dfn[fp[v][j]] &gt; dfn[k]) &#123;</div><div class="line">                ans[i] += 1 &lt;&lt; j;</div><div class="line">                v = fp[v][j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        if(u == k) &#123;</div><div class="line">            if(!fp[v][0]) ans[i] = -1;</div><div class="line">            else ans[i]++;</div><div class="line">        &#125; else &#123;</div><div class="line">            if(!fp[u][0] || !fp[v][0]) ans[i] = -1;</div><div class="line">            else &#123;</div><div class="line">                ans[i] += 2;</div><div class="line">                sq[b[dfn[v]] - 1].push_back(P(u, -i));</div><div class="line">                sq[dr[v]].push_back(P(u, i));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    for(i = 0; i &lt;= n; i++) &#123;</div><div class="line">        for(auto e : fq[i]) add(e);</div><div class="line">        for(auto e : sq[i]) &#123;</div><div class="line">            k = query(dr[e.fi]) - query(b[dfn[e.fi]] - 1);</div><div class="line">            if(e.se &lt; 0) cnt[-e.se] -= k;</div><div class="line">            else cnt[e.se] += k;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    for(i = 1; i &lt;= m; i++) &#123;</div><div class="line">        if(cnt[i]) ans[i]--;</div><div class="line">        printf(&quot;%d\n&quot;, ans[i]);</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LCA/" rel="tag">#LCA</a>
+          
+            <a href="/tags/倍增/" rel="tag">#倍增</a>
+          
+            <a href="/tags/树状数组/" rel="tag">#树状数组</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/05/CF-477-E/" rel="next" title="May Holidays">
+                <i class="fa fa-chevron-left"></i> May Holidays
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +408,13 @@
 
 
           
+     <div class="comments" id="comments">
+       
+			<div id="SOHUCS" ></div>
+
+       
+     </div>
+   
         </div>
         
           
@@ -354,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -439,6 +527,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -542,6 +641,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -562,6 +665,10 @@
     
 
    
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
   
 
 	

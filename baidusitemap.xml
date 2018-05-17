@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/17/CF-483-E/</loc>
+    <lastmod>2018-05-17T07:33:55.650Z</lastmod>
+    <data>
+        <display>
+        <title>NN country</title>
+        <pubTime>2018-05-17T07:16:22.000Z</pubTime>
+        
+        <tag>LCA</tag>
+         
+        <tag>倍增</tag>
+         
+        <tag>树状数组</tag>
+         
+         
+           
+             
+              <breadCrumb title="ACM" url="http://yoursite.com/categories/ACM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/05/CF-477-E/</loc>
     <lastmod>2018-05-05T11:08:27.407Z</lastmod>
     <data>
@@ -654,13 +678,13 @@
         
         <tag>DP</tag>
          
+        <tag>LCA</tag>
+         
         <tag>莫比乌斯反演</tag>
          
         <tag>欧拉函数</tag>
          
         <tag>虚树</tag>
-         
-        <tag>LCA</tag>
          
          
            
@@ -720,9 +744,9 @@
         <title>ZOJ2112</title>
         <pubTime>2017-06-05T05:38:49.000Z</pubTime>
         
-        <tag>整体二分</tag>
-         
         <tag>树状数组</tag>
+         
+        <tag>整体二分</tag>
          
          
            
