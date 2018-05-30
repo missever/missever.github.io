@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/05/30/CF-ACC/</loc>
+    <lastmod>2018-05-30T11:44:45.475Z</lastmod>
+    <data>
+        <display>
+        <title>Avito Code Challenge 2018</title>
+        <pubTime>2018-05-30T11:21:45.000Z</pubTime>
+        
+        <tag>NTT</tag>
+         
+        <tag>数据结构</tag>
+         
+        <tag>霍尔定理</tag>
+         
+        <tag>分治</tag>
+         
+         
+           
+             
+              <breadCrumb title="ACM" url="http://yoursite.com/categories/ACM/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2018/05/17/CF-483-E/</loc>
     <lastmod>2018-05-17T07:33:55.650Z</lastmod>
     <data>
@@ -57,9 +83,9 @@
         <title>Perpetual Subtraction</title>
         <pubTime>2018-04-29T08:04:52.000Z</pubTime>
         
-        <tag>概率</tag>
-         
         <tag>NTT</tag>
+         
+        <tag>概率</tag>
          
         <tag>矩阵对角化</tag>
          
@@ -373,9 +399,9 @@
         <title>hihocoder1629_Graph</title>
         <pubTime>2017-11-23T02:39:41.000Z</pubTime>
         
-        <tag>并查集</tag>
-         
         <tag>莫队</tag>
+         
+        <tag>并查集</tag>
          
          
            

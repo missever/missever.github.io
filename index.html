@@ -285,6 +285,121 @@
             
               
                 
+                <a class="post-title-link" href="/2018/05/30/CF-ACC/" itemprop="url">
+                  Avito Code Challenge 2018
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-30T19:21:45+08:00" content="2018-05-30">
+              2018-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="F-Round-Marriage"><a href="#F-Round-Marriage" class="headerlink" title="F. Round Marriage"></a>F. Round Marriage</h1><p><a href="http://codeforces.com/contest/981/problem/F" target="_blank" rel="external">题目传送门</a><br>显然的霍尔定理<br>利用前缀和处理一波最小区间即可</p>
+<h1 id="G-Magic-multisets"><a href="#G-Magic-multisets" class="headerlink" title="G. Magic multisets"></a>G. Magic multisets</h1><p><a href="http://codeforces.com/contest/981/problem/G" target="_blank" rel="external">题目传送门</a><br>拆分成区间+1和区间*2两种操作就是标准的双标记线段树了<br>可以证明拆分后的操作数最多为2q(因为q中的每个区间最多被合并一次)</p>
+<h1 id="H-K-Paths"><a href="#H-K-Paths" class="headerlink" title="H. K Paths"></a>H. K Paths</h1><p><a href="http://codeforces.com/contest/981/problem/H" target="_blank" rel="external">题目传送门</a><br>考虑树形dp<br>$f[u]$表示存在从$u$开始的一部分是所有路径的公共部分的方案数<br>然后就是简单的子树合并<br>难点在于如果公共部分的端点刚好是$u$的时候<br>如果另一个端点是$u$的祖先,分治$ntt$即可<br>如果在$u$的子树内,考虑dp,逆操作还原回去即可<br>逆操作复杂度小于$n\sqrt{n}$<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div></pre></td><td class="code"><pre><div class="line">#include&lt;bits/stdc++.h&gt;</div><div class="line">#define fi first</div><div class="line">#define se second</div><div class="line">using namespace std;</div><div class="line">typedef long long LL;</div><div class="line">typedef pair&lt;int, int&gt; P;</div><div class="line"></div><div class="line">const int mod = 998244353;</div><div class="line">const int maxn = 1e5 + 5;</div><div class="line"></div><div class="line">int add(int x, int y) &#123;</div><div class="line">    if((x += y) &gt;= mod) x -= mod;</div><div class="line">    return x;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int mul(int x, int y) &#123;</div><div class="line">    LL z = 1LL * x * y;</div><div class="line">    return z - z / mod * mod;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int powt(int a, int b) &#123;</div><div class="line">    int r = 1;</div><div class="line">    while(b) &#123;</div><div class="line">        if(b &amp; 1) r = mul(r, a);</div><div class="line">        a = mul(a, a);</div><div class="line">        b &gt;&gt;= 1;</div><div class="line">    &#125;</div><div class="line">    return r;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int wn[20];</div><div class="line">void GetWn() &#123;</div><div class="line">    for(int i = 0; i &lt; 20; i++) &#123;</div><div class="line">        int t = 1 &lt;&lt; i;</div><div class="line">        wn[i] = powt(3, (mod - 1) / t);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void NTT(int a[], int len, int t) &#123;</div><div class="line">    for (int i = 0, j = 0; i &lt; len; i++) &#123;</div><div class="line">        if (i &gt; j) swap(a[i], a[j]);</div><div class="line">        for (int l = len &gt;&gt; 1; (j ^= l) &lt; l; l &gt;&gt;= 1);</div><div class="line">    &#125;</div><div class="line">    int id = 0;</div><div class="line">    for(int h = 2; h &lt;= len; h &lt;&lt;= 1) &#123;</div><div class="line">        id++;</div><div class="line">        for(int j = 0; j &lt; len; j += h) &#123;</div><div class="line">            int w = 1;</div><div class="line">            for(int k = j; k &lt; j + h / 2; ++k) &#123;</div><div class="line">                int u = a[k];</div><div class="line">                int t = mul(w, a[k + h / 2]);</div><div class="line">                a[k] = add(u, t);</div><div class="line">                a[k + h / 2] = add(u, mod - t);</div><div class="line">                w = mul(w, wn[id]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    if(t == -1) &#123;</div><div class="line">        for(int i = 1; i &lt; len / 2; i++) swap(a[i], a[len - i]);</div><div class="line">        LL inv = powt(len, mod - 2);</div><div class="line">        for(int i = 0; i &lt; len; i++)  a[i] = mul(a[i], inv);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">vector&lt;int&gt; g[maxn];</div><div class="line">unordered_map&lt;int, int&gt; q;</div><div class="line">int sz[maxn], f[maxn], n, k, ans;</div><div class="line">int p[maxn], inv[maxn];</div><div class="line">int a[maxn &lt;&lt; 2], b[maxn &lt;&lt; 2], c[maxn &lt;&lt; 2], tot;</div><div class="line"></div><div class="line">void solve(int l, int r) &#123;</div><div class="line">    if(l == r) return;</div><div class="line">    int mid = (l + r) &gt;&gt; 1, m, i;</div><div class="line">    solve(l, mid);</div><div class="line">    solve(mid + 1, r);</div><div class="line">    for(m = 1; m &lt;= r - l + 1; m &lt;&lt;= 1);</div><div class="line">    a[0] = b[0] = 1;</div><div class="line">    for(i = l; i &lt;= mid; i++) a[i - l + 1] = c[i];</div><div class="line">    for(i -= l - 1; i &lt; m; i++) a[i] = 0;</div><div class="line">    for(i = mid + 1; i &lt;= r; i++) b[i - mid] = c[i];</div><div class="line">    for(i -= mid; i &lt; m; i++) b[i] = 0;</div><div class="line">    NTT(a, m, 1);</div><div class="line">    NTT(b, m, 1);</div><div class="line">    for(i = 0;i &lt; m; i++) a[i] = mul(a[i], b[i]);</div><div class="line">    NTT(a, m, -1);</div><div class="line">    for(i = 0;i &lt;= r - l; i++) c[l + i] = a[i + 1];</div><div class="line">&#125;</div><div class="line"></div><div class="line">void dfs(int u, int fa) &#123;</div><div class="line">    sz[u] = 1;</div><div class="line">    for(auto v : g[u]) &#123;</div><div class="line">        if(v == fa) continue;</div><div class="line">        dfs(v, u);</div><div class="line">        sz[u] += sz[v];</div><div class="line">        ans = add(ans, mul(f[u], f[v]));</div><div class="line">        f[u] = add(f[u], f[v]);</div><div class="line">    &#125;</div><div class="line">    tot = 0;</div><div class="line">    for(auto v : g[u]) &#123;</div><div class="line">        if(v == fa) c[tot++] = n - sz[u];</div><div class="line">        else c[tot++] = sz[v];</div><div class="line">    &#125;</div><div class="line">    q.clear();</div><div class="line">    solve(0, tot - 1);</div><div class="line">    int d, res;</div><div class="line">    for(auto v : g[u]) &#123;</div><div class="line">        if(v == fa) d = n - sz[u];</div><div class="line">        else d = sz[v];</div><div class="line">        if(q.find(d) == q.end()) &#123;</div><div class="line">            a[0] = res = 1;</div><div class="line">            for(int i = 0;i &lt; tot; i++) &#123;</div><div class="line">                a[i + 1] = add(c[i], mod - mul(a[i], d));</div><div class="line">                if(i &lt; k) res = add(res, mul(a[i + 1], mul(p[k], inv[k - i - 1])));</div><div class="line">            &#125;</div><div class="line">            q[d] = res;</div><div class="line">        &#125;</div><div class="line">        if(v == fa) f[u] = add(f[u], q[d]);</div><div class="line">        else ans = add(ans, mul(f[v], q[d]));</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main() &#123;</div><div class="line">#ifdef CX_TEST</div><div class="line">    freopen(&quot;E:\\program--GG\\test_in.txt&quot;, &quot;r&quot;, stdin);</div><div class="line">#endif</div><div class="line">    int i, u, v;</div><div class="line">    GetWn();</div><div class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;k);</div><div class="line">    if(k == 1) return printf(&quot;%lld\n&quot;, 1LL * n * (n - 1) / 2 % mod), 0;</div><div class="line">    if(n == 1) return puts(&quot;0&quot;), 0;</div><div class="line">    for(i = p[0] = 1; i &lt; maxn; i++) p[i] = mul(p[i - 1], i);</div><div class="line">    inv[maxn - 1] = powt(p[maxn - 1], mod - 2);</div><div class="line">    for(i = maxn - 1; i &gt; 0; i--) inv[i - 1] = mul(inv[i], i);</div><div class="line">    for(i = 1; i &lt; n; i++) &#123;</div><div class="line">        scanf(&quot;%d%d&quot;, &amp;u, &amp;v);</div><div class="line">        g[u].push_back(v);</div><div class="line">        g[v].push_back(u);</div><div class="line">    &#125;</div><div class="line">    dfs(1, 0);</div><div class="line">    printf(&quot;%d\n&quot;, ans);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/05/17/CF-483-E/" itemprop="url">
                   NN country
                 </a>
@@ -1299,121 +1414,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/17/CF_goodbye2017/" itemprop="url">
-                  CF_GoodBye2017简单题解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-01-17T14:24:41+08:00" content="2018-01-17">
-              2018-01-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="http://codeforces.com/contest/908">题目传送门</a><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2018/01/17/CF_goodbye2017/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1458,7 +1458,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-count">44</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1475,7 +1475,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
