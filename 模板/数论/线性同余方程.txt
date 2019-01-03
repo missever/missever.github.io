@@ -1,0 +1,26 @@
+void extend_Euclid(int a, int b, int &x, int &y)
+{
+    if(b == 0)
+    {
+        x = 1;
+        y = 0;
+        return;
+    }
+    extend_Euclid(b, a % b, x, y);
+    int tmp = x;
+    x = y;
+    y = tmp - (a / b) * y;
+}
+
+//ax%m=b
+int get_modans(int a,int m,int b)
+{
+    if(b == 0) return 0;
+    int d = __gcd(a,m);
+    if(b % d) return MAX;//no ans
+    int x,y;
+    extend_Euclid(a / d,m / d,x,y);
+    x = 1LL * x * b / d % m;
+    x = (x % m + m) % m;
+    return x;
+}

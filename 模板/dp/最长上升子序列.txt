@@ -1,0 +1,17 @@
+void solve(int x)
+{
+    int p = x;
+    int l,r,mid;
+    l = 1;
+    r = len;
+    while(l <= r)
+    {
+        mid = (l + r) >> 1;
+        if(f[mid] < p) l = mid + 1;
+        else r = mid - 1;
+    }
+    f[l] = p;
+    if(l > len) len = l;
+}
+
+//len为当前序列长度，初始为0，x为待更新结点的值

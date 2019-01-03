@@ -1,0 +1,111 @@
+const int max_d = 2;//维度
+static int f_id;//优先判断维度
+int nxt[max_d],root,tot;// 根,树中点的总数
+// 每次build后需及时更新root,插入和查询操作都是从根结点开始
+// 根结点并不一定是1
+LL ans;
+int pu[max_d];
+struct node {
+    int u[max_d],p_min[max_d],p_max[max_d],l,r;
+    bool operator < (const node &b) const {
+        for(int i = 0,j = f_id; i < max_d; i++) {
+            if(u[j] != b.u[j]) return u[j] < b.u[j];
+            if(++j == max_d) j = 0;
+        }
+        return true;
+    }
+    void clear() {
+        l = r = 0;
+    }
+} f[maxn];
+void init(int n) {
+    tot = n;
+    for(int i = 0; i + 1 < max_d; i++) nxt[i] = i + 1;
+    nxt[max_d - 1] = 0;
+    for(int i = 0; i <= n; i++) f[i].clear();
+}
+inline void updata(int x,int y) {
+    for(int i = 0; i < max_d; i++) {
+        f[x].p_min[i] = min(f[x].p_min[i],f[y].p_min[i]);
+        f[x].p_max[i] = max(f[x].p_max[i],f[y].p_max[i]);
+    }
+}
+int build(int l,int r,int id) {
+    f_id = id;
+    int mid = (l + r) >> 1;
+    nth_element(f + l + 1,f + mid + 1,f + r + 1);
+    for(int i = 0; i < max_d; i++) f[mid].p_min[i] = f[mid].p_max[i] = f[mid].u[i];
+    if(l < mid) {
+        f[mid].l = build(l, mid - 1, nxt[id]);
+        updata(mid, f[mid].l);
+    } else f[mid].l = 0;
+    if(mid < r) {
+        f[mid].r = build(mid + 1, r, nxt[id]);
+        updata(mid, f[mid].r);
+    } else f[mid].r = 0;
+    return mid;
+}
+// 加点
+int add_point(int u[]) {
+    f[++tot].clear();
+    memcpy(f[tot].u,u,sizeof(int) * max_d);
+    memcpy(f[tot].p_min,u,sizeof(int) * max_d);
+    memcpy(f[tot].p_max,u,sizeof(int) * max_d);
+    return tot;
+}
+// 插点
+void insert(int t,int id) {
+    if(pu[id] < f[t].u[id]) {
+        if(f[t].l) insert(f[t].l,nxt[id]);
+        else f[t].l = add_point(pu);
+        updata(t,f[t].l);
+    } else {
+        if(f[t].r) insert(f[t].r,nxt[id]);
+        else f[t].r = add_point(pu);
+        updata(t,f[t].r);
+    }
+}
+inline LL sqr(LL x) {
+    return x * x;
+}
+// 求距离函数,这里是欧式距离,可以根据题目换成曼哈顿距离
+// 求曼哈顿距离 只需将下面两个函数中的sqr改成abs即可
+inline LL dist(int k) {
+    LL s = 0;
+    for(int i = 0; i < max_d; i++) s += sqr(f[k].u[i] - pu[i]);
+    return s;
+}
+// 求根为k的子树中的点到pu点的距离的下界
+inline LL dist_min(int k) {
+    LL s = 0;
+    for(int i = 0; i < max_d; i++) {
+        if(f[k].p_min[i] > pu[i]) s += sqr(f[k].p_min[i] - pu[i]);
+        if(f[k].p_max[i] < pu[i]) s += sqr(f[k].p_max[i] - pu[i]);
+    }
+    return s;
+}
+// 询问复杂度最坏是sqrt(n)
+void query(int t) {
+    LL d = dist(t),dl = inf,dr = inf;
+    ans = min(ans,d);
+    if(f[t].l) dl = dist_min(f[t].l);
+    if(f[t].r) dr = dist_min(f[t].r);
+    if(dl < dr) {
+        if(dl < ans) query(f[t].l);
+        if(dr < ans) query(f[t].r);
+    } else {
+        if(dr < ans) query(f[t].r);
+        if(dl < ans) query(f[t].l);
+    }
+}
+// 区间询问
+void query(int t,int x1,int y1,int x2,int y2) {
+    if(x1 > f[t].p_max[0] || x2 < f[t].p_min[0] || y1 > f[t].p_max[1] || y2 < f[t].p_min[1]) return;
+    if(x1 <= f[t].p_min[0] && f[t].p_max[0] <= x2 && y1 <= f[t].p_min[1] && f[t].p_max[1] <= y2) {
+        ans = min(ans,f[t].min_v);//更新区间内答案
+        return;
+    }
+    if(x1 <= f[t].u[0] && f[t].u[0] <= x2 && y1 <= f[t].u[1] && f[t].u[1] <= y2) ans = min(ans,f[t].v);//更新单点答案
+    if(f[t].l) query(f[t].l,x1,y1,x2,y2);
+    if(f[t].r) query(f[t].r,x1,y1,x2,y2);
+}

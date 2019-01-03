@@ -1,0 +1,44 @@
+template<typename T, typename U>
+struct HashMap {
+    static const int M = 333331;
+    int chk[M], cn;
+    int q[M], qn;
+    vector<T> a;
+    vector<U> b;
+    int fst[M], m;
+    vector<int> nxt;
+    HashMap() {
+        memset(fst, -1, sizeof fst);
+        cn++;
+    }
+    void clear() {
+        for (int i = 0; i < qn; i++) fst[q[i]] = -1;
+        cn++;
+        qn = m = 0;
+        a.clear(), b.clear(), nxt.clear();
+    }
+    U& operator[](T x) {
+        int r = (x % M + M) % M;
+        for (int e = fst[r]; ~e; e = nxt[e]) {
+            if (a[e] == x) {
+                return b[e];
+            }
+        }
+        if (chk[r] != cn) {
+            chk[r] = cn;
+            q[qn++] = r;
+        }
+        a.push_back(x), b.push_back(U());
+        nxt.push_back(fst[r]), fst[r] = m++;
+        return b.back();
+    }
+    bool count(T x) {
+        int r = (x % M + M) % M;
+        for (int e = fst[r]; ~e; e = nxt[e]) {
+            if (a[e] == x) {
+                return 1;
+            }
+        }
+        return 0;
+    }
+};

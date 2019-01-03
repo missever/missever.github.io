@@ -1,0 +1,23 @@
+void extend_Euclid(LL a, LL b, LL &x, LL &y)
+{
+    if(b == 0)
+    {
+        x = 1;
+        y = 0;
+        return;
+    }
+    extend_Euclid(b, a % b, x, y);
+    LL tmp = x;
+    x = y;
+    y = tmp - (a / b) * y;
+}
+
+//求a关于b的逆元
+LL Inv(LL a, LL b)
+{
+    LL d = __gcd(a, b);
+    if(d != 1) return -1;
+    LL x, y;
+    extend_Euclid(a, b, x, y);
+    return (x % b + b) % b;
+}

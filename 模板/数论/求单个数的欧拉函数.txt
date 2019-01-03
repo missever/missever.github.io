@@ -1,0 +1,12 @@
+int eular(int k)
+{
+    int i,s;
+    s = k;
+    for(i = 2;i * i <= k; i++)
+    {
+        if(k % i == 0) s = s / i * (i - 1);
+        while(k % i == 0) k /= i;
+    }
+    if(k > 1) s = s / k * (k - 1);
+    return s;
+}

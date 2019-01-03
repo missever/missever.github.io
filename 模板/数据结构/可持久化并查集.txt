@@ -1,0 +1,105 @@
+//created by missever
+
+#include<bits/stdc++.h>
+#define MAX 1000000007
+using namespace std;
+const int BUFFER_MAX_SIZE = 100000;
+struct Quick_In {
+    char buf[BUFFER_MAX_SIZE], *ps = buf, *pe = buf + 1;
+    inline void InNext() {
+        if (++ps == pe)
+            pe = (ps = buf) + fread(buf, sizeof(char), sizeof(buf) / sizeof(char), stdin);
+    }
+    template<class T>
+    inline bool operator()(T &number) {
+        number = 0;
+        T f = 1;
+        if (ps == pe) return false; //EOF
+        do {
+            InNext();
+            if ('-' == *ps) f = -1;
+        } while (ps != pe && !isdigit(*ps));
+        if (ps == pe) return false; //EOF
+        do {
+            number = (number << 1) + (number << 3) + *ps - 48;
+            InNext();
+        } while (ps != pe && isdigit(*ps));
+        number *= f;
+        return true;
+    }
+} In;
+int n,m,sz;
+int root[200005],ls[2000005],rs[2000005],v[2000005],deep[2000005];
+void build(int &k,int l,int r) {
+    if(!k)k=++sz;
+    if(l==r) {
+        v[k]=l;
+        return;
+    }
+    int mid=(l+r)>>1;
+    build(ls[k],l,mid);
+    build(rs[k],mid+1,r);
+}
+void modify(int l,int r,int x,int &y,int pos,int val) {
+    y=++sz;
+    if(l==r) {
+        v[y]=val;
+        deep[y]=deep[x];
+        return;
+    }
+    ls[y]=ls[x];
+    rs[y]=rs[x];
+    int mid=(l+r)>>1;
+    if(pos<=mid)
+        modify(l,mid,ls[x],ls[y],pos,val);
+    else modify(mid+1,r,rs[x],rs[y],pos,val);
+}
+int query(int k,int l,int r,int pos) {
+    if(l==r)return k;
+    int mid=(l+r)>>1;
+    if(pos<=mid)return query(ls[k],l,mid,pos);
+    else return query(rs[k],mid+1,r,pos);
+}
+void add(int k,int l,int r,int pos) {
+    if(l==r) {
+        deep[k]++;
+        return;
+    }
+    int mid=(l+r)>>1;
+    if(pos<=mid)add(ls[k],l,mid,pos);
+    else add(rs[k],mid+1,r,pos);
+}
+int find(int k,int x) {
+    int p=query(k,1,n,x);
+    if(x==v[p])return p;
+    return find(k,v[p]);
+}
+int main() {
+    int t;
+    In(t);
+    while(t--) {
+        In(n),In(m);
+        build(root[0],1,n);
+        int f,a,b;
+        for(int i=1; i<=m; i++) {
+            In(f);
+            if(f==1) {
+                root[i]=root[i-1];
+                In(a),In(b);
+                int p=find(root[i],a),q=find(root[i],b);
+                if(v[p]==v[q])continue;
+                if(deep[p]>deep[q])swap(p,q);
+                modify(1,n,root[i-1],root[i],v[p],v[q]);
+                if(deep[p]==deep[q])add(root[i],1,n,v[q]);
+            }
+            if(f==2) {
+                root[i]=root[i-1];
+                In(a),In(b);
+                int p=find(root[i],a),q=find(root[i],b);
+                if(v[p]!=v[q]) printf("NO\n");
+                else printf("YES\n");
+            }
+        }
+    }
+    return 0;
+}

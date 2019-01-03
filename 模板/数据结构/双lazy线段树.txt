@@ -1,0 +1,41 @@
+struct ed {
+    int len, sum, lz_m, lz_a;//ans = sum * lz_m + lz_a * len;
+    void init() {
+        len = sum = lz_a = 0;
+        lz_m = 1;
+    }
+    void fadd(int x) {
+        lz_a = add(lz_a, x);
+    }
+    void fmul(int x) {
+        lz_m = mul(lz_m, x);
+        lz_a = mul(lz_a, x);
+    }
+    int query() {
+        return add(mul(sum, lz_m), mul(lz_a, len));
+    }
+    void push_up(ed l, ed r) {
+        sum = add(l.query(), r.query());
+    }
+    void push_down(ed &l, ed &r) {
+        l.fmul(lz_m);
+        l.fadd(lz_a);
+        r.fmul(lz_m);
+        r.fadd(lz_a);
+        sum = add(mul(sum, lz_m), mul(lz_a, len));
+        lz_m = 1;
+        lz_a = 0;
+    }
+} f[maxn << 2];
+
+void build(int t, int l, int r) {
+    f[t].init();
+    if(l == r) {
+        f[t].len = w[l] - w[l - 1];//区间长度
+        return;
+    }
+    int mid = (l + r) >> 1;
+    build(t << 1, l, mid);
+    build(t << 1 | 1, mid + 1, r);
+    f[t].len = f[t << 1].len + f[t << 1 | 1].len;
+}

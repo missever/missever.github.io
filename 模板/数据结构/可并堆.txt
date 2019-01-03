@@ -1,0 +1,37 @@
+堆顶为最小值
+需重载>比较符
+
+template <class T> struct Heap {
+    int rt[maxn], l[maxm], r[maxm], tot;
+    T key[maxm];
+    void init(int n) {
+        fill(rt, rt + n, 0);
+        tot = 0;
+    }
+    int merge(int x, int y) {
+        if(!x || !y) return x ^ y;
+        if(key[x] > key[y]) swap(x, y);
+        r[x] = merge(r[x], y);
+        swap(l[x], r[x]);
+        return x;
+    }
+    void push(int k, T val) {
+        key[++tot] = val;
+        l[tot] = r[tot] = 0;
+        rt[k] = merge(rt[k], tot);
+    }
+    void join(int x, int y) {
+        rt[x] = merge(rt[x], rt[y]);
+        rt[y] = 0;
+    }
+    T top(int k) {
+        return key[rt[k]];
+    }
+    bool empty(int k) {
+        return !rt[k];
+    }
+    void pop(int k) {
+        rt[k] = merge(l[rt[k]], r[rt[k]]);
+    }
+};
+Heap<node> hp;

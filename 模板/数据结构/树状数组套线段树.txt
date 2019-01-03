@@ -1,0 +1,60 @@
+template<class T> struct node {
+    T val;
+    int cl, cr;
+    void clear() {
+        val = 0;
+        cl = cr = 0;
+    }
+};
+
+template<class T> struct SegBit {
+    node<T> f[maxn * 100];
+    int limx, limy, tot;
+    void init(int x, int y) {
+        tot = limx = x;
+        limy = y;
+        for(int i = 1; i <= limx; i++) f[i].clear();
+    }
+    void update(int t, int l, int r, int x, T v) {
+        if(l == r) {
+            f[t].val += v; // 单点更新
+            return;
+        }
+        int mid = (l + r) >> 1;
+        if(x <= mid) {
+            if(!f[t].cl) {
+                f[t].cl = ++tot;
+                f[tot].clear();
+            }
+            update(f[t].cl, l, mid, x, v);
+        } else {
+            if(!f[t].cr) {
+                f[t].cr = ++tot;
+                f[tot].clear();
+            }
+            update(f[t].cr, mid + 1, r, x, v);
+        }
+        f[t].val = 0;
+        if(f[t].cl) f[t].val += f[f[t].cl].val;
+        if(f[t].cr) f[t].val += f[f[t].cr].val;
+    }
+    T query(int t, int l, int r, int ll, int rr) {
+        if(ll <= l && r <= rr) return f[t].val;
+        int mid = (l + r) >> 1;
+        T res = 0;
+        if(f[t].cl && ll <= mid) res += query(f[t].cl, l, mid, ll, rr);
+        if(f[t].cr && rr > mid) res += query(f[t].cr, mid + 1, r, ll, rr);
+        return res;
+    }
+    void update(int x, int y, int v) {
+        for(; x <= limx; x += (x & -x)) update(x, 1, limy, y, v);
+    }
+    T query(int x, int y1, int y2) {
+        T res = 0;
+        for(; x > 0; x -= (x & -x)) res += query(x, 1, limy, y1, y2);
+        return res;
+    }
+    T query(int x1, int x2, int y1, int y2) {
+        return query(x2, y1, y2) - query(x1 - 1, y1, y2);
+    }
+};

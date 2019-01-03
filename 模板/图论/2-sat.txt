@@ -1,0 +1,177 @@
+对于a和b的限制关系:
+如果a和b必须一起选，连有向边a->b,b->a,a'->b',b'->a'
+如果a和b最多只能选一个，连有向边a->b',b->a'
+如果必须选a，连有向边a'->a
+如果a一定不能选，连边a->a'
+如果a和b至少要选一个，连边a'->b,b'->a
+建边一定要有对称性(u->v) 和 (v'->u')
+
+
+-------------------------------求字典序最小的解的暴力方法-------------------
+
+算法思想：
+1.首先定义我们需要用到的数组，mark数组用来标记某个点是否被选取，对于序列中的一个数我们会拆成两个点i和i'，所以我们在利用mark数组进行标记的时候，采用如下这种标记方法：
+
+mark[i<<1]表示i,而mark[i<<1|1]表示i'
+
+一个用来存本次标记过的点的一个队列s
+
+2.枚举每个点，然后判断当前点拆出的两个点是否已经有其中一个被选取，如果有的话，那么继续枚举下一个点，如果没有被标记，那么转到操作3
+
+3.如果某一点拆出的两个点都没有被标记，那么我们先尝试标记第一个点，因为如果标记第一个点会导致一些点必须被标记，所以要进行dfs,然后判断过程中会不会出现矛盾的情况，如果出现了，那么将本次标记的点全部还原，然后就剩下第二个点一种情况，所以我们查看第二种情况，判断会不会出现，，如果出现矛盾，那么问题无解，结束算法如果当前成功标记，那么继续像2那样枚举，直至枚举过所有的点算法结束。
+
+4.因为每次dfs的过程会把所有当前点可达的点都进行标记，所以之后每次标记的过程中，因为已经标记的点，有一个不选的话，那么代表所有的点均不选，且会导致与它同源的那个点一定被选，所以一旦被选中，不能导致出现有解的情况，那么当前情况一定无解，因为每次做的操作只可能会导致图上的点不变或者整体颜色反转，所以只需要让新染色的点两种选择即可，因为得到的结果只有两种，而且同时做反转操作与没做的效果是一样的。
+
+5.因为是按照深搜序做的，所以得到解一定是字典序最小的。
+
+
+--------------------利用强连通缩点判断2-sat问题是否有解------------------
+算法思想：
+
+1.利用强连通缩点得到一个DAG（有向无环图）;
+
+2.然后对于每个强连通分量当中，所有点都是选就一起选，不选就一起不选的，所以如果i和i'同时存在一个强连通分量里，就一定无解，否则有解
+
+-------------------按照拓扑序求得任意一组解-------------------------------
+1.首先依旧要进行强连通缩点，存反图！！！！，我们得到一个DAG
+
+2.然后我们要得到新得到的图中的矛盾关系，也就是i和i'所在的强连通分量是矛盾的。
+
+3.然后我们对DAG进行染色，在拓扑排序的过程中进行染色，如果某个点没有染色，那么染为1(表示选择这个点)，并且将与他矛盾的点染为2（表示不选择这个点），并把染色为2的点能访问到的点都染色为2
+
+4.那么在拓扑排序结束之后就对所有点进行完染色了。拓扑只是在有向无环图中的一种很好的遍历方式
+
+
+vector<int> g[maxn * 2];
+int pre[maxn * 2],low[maxn * 2],scc[maxn * 2];
+int dfs_t,scc_cnt;
+stack<int> ST;
+
+// 有向图求强联通
+void dfs(int u) {
+    pre[u] = low[u] = ++dfs_t;
+    ST.push(u);
+    for(auto v:g[u]) {
+        if(!pre[v]) {
+            dfs(v);
+            low[u] = min(low[u],low[v]);
+        } else if(!scc[v]) {
+            low[u] = min(low[u],pre[v]);
+        }
+    }
+    if(low[u] == pre[u]) {
+        scc_cnt++;
+        while(!ST.empty()) {
+            int x = ST.top();
+            ST.pop();
+            scc[x] = scc_cnt;
+            if(x == u) break;
+        }
+    }
+}
+
+vector<int>g2[maxn * 2];
+int l[maxn * 2],q[maxn * 2],pc[maxn * 2];
+void Shrink_Point(int n) {
+    for(int u = 1; u <= n; u++) {
+        for(auto v:g[u]) {
+            if(scc[u] != scc[v]) {
+                g2[scc[v]].push_back(scc[u]);
+                l[scc[u]]++;
+            }
+        }
+    }
+}
+
+void dfsc(int u) {
+    if(pc[u]) return;
+    pc[u] = 2;
+    for(auto v:g2[u]) dfsc(v);
+}
+
+bool find_scc(int n) {
+    dfs_t = scc_cnt = 0;
+    for(int i = 1; i <= n; i++) {
+        if(!pre[i]) dfs(i);
+    }
+    //i和i+1构成对立关系，在同一强联通分量内则无解
+    for(int i = 2;i <= n; i += 2) {
+        if(scc[i] == scc[i + 1]) return false;
+    }
+    Shrink_Point(n);
+    int mm = 0;
+    for(int i = 1;i <= scc_cnt; i++) {
+        if(l[i] == 0) q[mm++] = i;
+    }
+    for(int i = 0;i < mm; i++) {
+        for(auto v:g2[q[i]]) {
+            l[v]--;
+            if(l[v] == 0) q[mm++] = v;
+        }
+    }
+    //新图中的对立关系
+    for(int i = 2;i <= n; i += 2) {
+        l[scc[i]] = scc[i + 1];
+        l[scc[i + 1]] = scc[i];
+    }
+    //pc[i]表示缩点后的强联通分量选还是不选，1为选，2为不选
+    //可以保证pc[scc[i]]和pc[scc[i+1]]是相反的
+    //如果pc[scc[i]]为1表示选择i
+    for(int i = 0;i < mm; i++) {
+        if(pc[q[i]]) continue;
+        pc[q[i]] = 1;
+        dfsc(l[q[i]]);
+    }
+    return true;
+}
+
+
+//线段树优化建图
+vector<int> ,f[maxn << 2]；
+int fl[maxn << 2], fr[maxn << 2], tot;
+void update(int t, int l, int r, int ll, int rr, int x) {
+    if(ll <= l && r <= rr) {
+        f[t].push_back(x);
+        return;
+    }
+    int mid = (l + r) >> 1;
+    if(ll <= mid) update(t << 1, l, mid, ll, rr, x);
+    if(rr > mid) update(t << 1 | 1, mid + 1, r, ll, rr, x);
+}
+int rev(int x) {
+    if(x & 1) return x - 1;
+    else return x + 1;
+}
+void add_edge(int x, int y) {
+    g[x].push_back(y);
+    g[rev(y)].push_back(rev(x));
+}
+void build(int t, int l, int r) {
+    fl[t] = tot++;
+    int pre = fl[t];
+    for(auto e : f[t]) {
+        add_edge(pre << 1, rev(e));
+        add_edge(pre << 1, tot << 1);
+        add_edge(e, tot << 1);
+        pre = tot++;
+    }
+    fr[t] = pre;
+    if(t > 1) add_edge(fr[t >> 1] << 1, fl[t] << 1);
+    if(l == r) return;
+    int mid = (l + r) >> 1;
+    build(t << 1, l, mid);
+    build(t << 1 | 1, mid + 1, r);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

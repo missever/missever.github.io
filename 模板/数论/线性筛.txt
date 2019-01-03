@@ -1,0 +1,106 @@
+const int maxn = 1e7+5;
+bool flag[maxn];
+int phi[maxn],pri[maxn];
+int cnt = 0;
+
+
+//f[i]表示i的最大质因子
+for (int i = 2; i < maxn; ++i)
+{
+    if(f[i]) continue;
+    for (int j = i;j < maxn; j += i) f[j] = i;
+}
+
+//筛质数
+void GetPrime()
+{
+    for (int i = 2; i < maxn; ++i)
+    {
+        if (!flag[i]) pri[cnt++] = i;
+        for (int j = 0; j < cnt && pri[j] * i < maxn; ++j)
+        {
+            flag[pri[j] * i] = 1;
+            if (i % pri[j] == 0) break;
+        }
+    }
+}
+
+//筛欧拉函数
+void Get_phi()
+{
+    phi[1] = 1;
+    for(int i = 2; i < maxn; i++)
+    {
+        if(!flag[i])
+        {
+            pri[cnt++] = i;
+            phi[i] = i - 1;
+        }
+        for(int j = 0; j < cnt; j++)
+        {
+            if(i * pri[j] > maxn) break;
+            flag[i * pri[j]] = true;
+            if(i % pri[j] == 0)
+            {
+                phi[i * pri[j]] = pri[j] * phi[i];
+                break;
+            }
+            else phi[i * pri[j]] = (pri[j] - 1) * phi[i];
+        }
+    }
+}
+
+//筛莫比乌斯函数
+void Get_mu()
+{
+    mu[1] = 1;
+    for(int i = 2; i < maxn; i++)
+    {
+        if(!flag[i])
+        {
+            pri[cnt++] = i;
+            mu[i] = -1;
+        }
+        for(int j = 0; j < cnt; j++)
+        {
+            if(i * pri[j] > maxn) break;
+            flag[i * pri[j]] = true;
+            if(i % pri[j] == 0)
+            {
+                mu[i * pri[j]] = 0;
+                break;
+            }
+            else mu[i * pri[j]] = -mu[i];
+        }
+    }
+}
+
+//筛约数个数
+int pri[maxn],e[maxn],div[maxn];
+int cnt = 0;
+void init()
+{
+    div[1] = 1;
+    for(int i = 2; i < maxn; i++)
+    {
+        if(!flag[i])
+        {
+            pri[cnt++] = i;
+            e[i] = 1;
+            div[i] = 2;
+        }
+        for(int j = 0; j < cnt; j++)
+        {
+            if(i * pri[j] > maxn) break;
+            flag[i * pri[j]] = true;
+            if(i % pri[j] == 0)
+            {
+                e[i * pri[j]] = e[i] + 1;
+                div[i * pri[j]] = div[i] / (e[i] + 1) * (e[i] + 2);
+                break;
+            }
+            e[i * pri[j]] = 1;
+            div[i * pri[j]] = div[i] * 2;
+        }
+    }
+}
