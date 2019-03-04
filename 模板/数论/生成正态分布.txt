@@ -1,7 +1,0 @@
-default_random_engine generator(time(NULL));//产生种子
-//time(NULL)可以改成常数、、那样产生的是伪随机数
-normal_distribution<double> distribution(0.0,1.0);//形成分布第一个为均值，第二个为方差
-uniform_int_distribution //整数范围的均匀分布
-uniform_real_distribution //实数范围的均匀分布
-cout<<distribution(generator)<<endl;//输出随机数
-uniform_int_distribution<int> distribution(0,1000000000);
